@@ -1,4 +1,12 @@
-expenses = []
+import json
+
+try:
+    with open("expenses.json", "r") as file:
+        expenses = json.load(file)
+
+except FileNotFoundError:
+    expenses = []
+
 
 while True:
     print("=========================")
@@ -25,6 +33,9 @@ while True:
         }
 
         expenses.append(expense)
+
+        with open("expenses.json", "w") as file:
+            json.dump(expenses, file, indent=4)
 
         print("Expense added successfully.")
         print()
