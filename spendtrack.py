@@ -59,7 +59,33 @@ while True:
         print()
 
     elif choice == "4":
-        print("View Spending by Category selected")
+        print()
+        print("------ Spending by Category ------")
+
+        if len(expenses) == 0:
+            print("No expenses have been added.")
+
+        else:
+            category_totals = {}
+
+            for expense in expenses:
+                category = expense["category"]
+                amount = expense["amount"]
+
+                if category in category_totals:
+                    category_totals[category] = category_totals[category] + amount
+
+                else:
+                    category_totals[category] = amount
+
+            for category in category_totals:
+                print(
+                    category,
+                    "| $",
+                    format(category_totals[category], ".2f")
+                )
+
+        print()
 
     elif choice == "5":
         print("Exiting SpendTrack")
