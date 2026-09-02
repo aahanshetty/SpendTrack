@@ -41,7 +41,7 @@ while True:
                 print(
                     expense["name"],
                     "| $",
-                    expense["amount"],
+                    format(expense["amount"], ".2f"),
                     "|",
                     expense["category"]
                 )
@@ -49,7 +49,14 @@ while True:
         print()
 
     elif choice == "3":
-        print("View Total Spending selected")
+        total = 0
+
+        for expense in expenses:
+            total = total + expense["amount"]
+
+        print()
+        print("Total Spending: $", format(total, ".2f"))
+        print()
 
     elif choice == "4":
         print("View Spending by Category selected")
@@ -60,3 +67,4 @@ while True:
 
     else:
         print("Invalid choice")
+        print()
