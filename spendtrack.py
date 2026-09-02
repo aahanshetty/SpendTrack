@@ -23,7 +23,20 @@ while True:
 
     if choice == "1":
         name = input("Enter expense name: ")
-        amount = float(input("Enter amount: $"))
+
+        try:
+            amount = float(input("Enter amount: $"))
+
+            if amount <= 0:
+                print("Amount must be greater than $0.")
+                print()
+                continue
+
+        except ValueError:
+            print("Invalid amount. Please enter a number.")
+            print()
+            continue
+
         category = input("Enter category: ")
 
         expense = {
