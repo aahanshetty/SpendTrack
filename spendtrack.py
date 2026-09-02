@@ -30,7 +30,23 @@ while True:
         print()
 
     elif choice == "2":
-        print("View Expenses selected")
+        print()
+        print("------ Expenses ------")
+
+        if len(expenses) == 0:
+            print("No expenses have been added.")
+
+        else:
+            for expense in expenses:
+                print(
+                    expense["name"],
+                    "| $",
+                    expense["amount"],
+                    "|",
+                    expense["category"]
+                )
+
+        print()
 
     elif choice == "3":
         print("View Total Spending selected")
